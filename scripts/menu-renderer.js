@@ -37,28 +37,46 @@ const MenuRenderer = {
             return;
         }
 
-        let products = [];
-        
-        // Lógica especial para a seção Caprichado (clona os pastéis com +R$ 2.00)
-        if (category === 'especiais') {
-            const normalPasteis = window.MENU_DATA['pasteis'] || [];
-            products = normalPasteis.map(p => ({
-                ...p,
-                id: `cap-${p.id}`,
-                name: `Caprichado - ${p.name}`,
-                price: p.price + 2.00,
-                description: `${p.description} (Dobro de recheio)`
-            }));
-        } else {
-            products = window.MENU_DATA[category] || [];
+        try {
+            // Verifica se os dados existem antes de tentar acessar
+            if (!window.MENU_DATA) {
+                console.error('❌ MenuRenderer: Erro fatal - window.MENU_DATA não foi definido.');
+                container.innerHTML = '<p class="col-span-full text-center py-10 text-red-500 font-bold">Erro ao carregar cardápio. Recarregue a página.</p>';
+                return;
+            }
+
+            let products = [];
+            
+            // Lógica especial para a seção Caprichado (clona os pastéis com +R$ 2.00)
+            if (category === 'especiais') {
+                const normalPasteis = window.MENU_DATA['pasteis'] || [];
+                products = normalPasteis.map(p => ({
+                    ...p,
+                    id: `cap-${p.id}`,
+                    name: `Caprichado - ${p.name}`,
+                    price: p.price + 2.00,
+                    description: `${p.description} (Dobro de recheio)`
+                }));
+            } else {
+                products = window.MENU_DATA[category] || [];
+            }
+
+            // Se não houver produtos, mostra uma mensagem amigável em vez de ficar vazio
+            if (products.length === 0) {
+                container.innerHTML = '<p class="col-span-full text-center py-10 text-gray-500">Nenhum item disponível nesta categoria.</p>';
+                return;
+            }
+
+            container.innerHTML = ''; // Limpa o container (remove o spinner)
+
+            products.forEach(product => {
+                const productElement = this.createProductHTML(product, category);
+                container.appendChild(productElement);
+            });
+        } catch (error) {
+            console.error(`❌ MenuRenderer: Erro ao renderizar categoria ${category}:`, error);
+            container.innerHTML = '<p class="col-span-full text-center py-10 text-red-500">Ocorreu um erro ao carregar esta seção.</p>';
         }
-
-        container.innerHTML = ''; // Limpa o container
-
-        products.forEach(product => {
-            const productElement = this.createProductHTML(product, category);
-            container.appendChild(productElement);
-        });
     },
 
     /**

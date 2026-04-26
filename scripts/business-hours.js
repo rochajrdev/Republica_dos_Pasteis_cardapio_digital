@@ -32,14 +32,18 @@
     if (open) {
       remove('bg-red-600');
       remove('hover:bg-red-700');
+      remove('border-red-500');
       add('bg-green-600');
       add('hover:bg-green-700');
+      add('border-green-500');
       badge.setAttribute('aria-label', 'Aberto agora');
     } else {
       remove('bg-green-600');
       remove('hover:bg-green-700');
+      remove('border-green-500');
       add('bg-red-600');
       add('hover:bg-red-700');
+      add('border-red-500');
       badge.setAttribute('aria-label', 'Fechado agora');
     }
   }

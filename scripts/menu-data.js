@@ -60,3 +60,4 @@ const MENU_DATA = {
 
 // Exportar para uso global (como o projeto é vanilla sem módulos ES por enquanto)
 window.MENU_DATA = MENU_DATA;
+console.log('📦 MENU_DATA: Carregado com sucesso e atribuído ao objeto window');
