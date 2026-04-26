@@ -1,460 +1,314 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>    <meta charset="UTF-8">
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
-    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!--META TAG OG-->
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content="República dos Pasteis"/>
-    <meta property="og:image" content="https://republica-dos-pasteis.vercel.app/assets/avatar.png"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="República dos Pasteis" />
+    <meta property="og:image" content="https://republica-dos-pasteis.vercel.app/assets/avatar.png" />
     <meta property="og:description" content="Pasteis deliciosos feito na hora!" />
-    <meta property="og:site_name" content="República dos Pasteis" /> 
+    <meta property="og:site_name" content="República dos Pasteis" />
 
-    <!-- Adicionar meta tags para SEO -->
-    <meta name="description" content="Cardápio online da República dos Pastéis. Pastéis deliciosos feitos na hora em Aracaju.">
+    <!-- SEO -->
+    <meta name="description"
+        content="Cardápio online da República dos Pastéis. Pastéis deliciosos feitos na hora em Aracaju.">
     <meta name="keywords" content="pastel, pastéis, comida, delivery, Aracaju">
     <link rel="canonical" href="https://republica-dos-pasteis.vercel.app">
 
-    <!-- Adicionar preload para recursos críticos -->
     <link rel="preload" href="./assets/avatar.png" as="image">
-    <link rel="preload" href="./styles/output.css" as="style">    <link rel="stylesheet" href="./styles/output.css"/>    <link rel="stylesheet" href="./styles/theme.css"/>
-    <link rel="stylesheet" href="./styles/theme-button.css"/>
-    <link rel="stylesheet" href="./styles/cart.css"/>
-    <link rel="stylesheet" href="./styles/payment-summary.css"/>
-    <link rel="stylesheet" href="./styles/mobile-fixes.css"/><title>República dos Pastéis</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/theme.css" />
+    <link rel="stylesheet" href="./styles/theme-button.css" />
+    <link rel="stylesheet" href="./styles/cart.css" />
+    <link rel="stylesheet" href="./styles/payment-summary.css" />
+    <link rel="stylesheet" href="./styles/mobile-fixes.css" />
+
+    <title>República dos Pastéis - Cardápio Digital</title>
 </head>
 
-<body class="transition-colors duration-300">
-    <a href="#menu" class="skip-link">Pular para o cardápio</a>    <!-- HEADER -->
-    <header class="w-full h-[420px] bg-zinc-900 dark:bg-zinc-800 bg-home bg-cover bg-center relative">        <nav class="absolute top-0 left-0 right-0 flex justify-end p-4">
-            <!-- O botão do tema será inserido aqui pelo theme.js -->
+<body class="transition-colors duration-300 bg-gray-50 dark:bg-zinc-900 font-['Poppins']">
+    <a href="#menu-sections" class="skip-link">Pular para o cardápio</a>
+
+    <!-- HEADER -->
+    <header class="w-full h-[420px] bg-zinc-900 dark:bg-zinc-800 bg-home bg-cover bg-center relative">
+        <nav class="absolute top-0 left-0 right-0 flex justify-end p-4 z-10">
+            <!-- Botão de tema injetado pelo theme.js -->
         </nav>
-        
-        <div class="w-full h-full flex flex-col justify-center items-center animate-fade-in">
-            <img
-                src="./assets/avatar.png"
-                alt="Logo República dos Pastéis"
-                class="w-32 h-32 rounded-full shadow-lg hover:scale-110 duration-200"
-                loading="eager"
-            />
 
-            <h1 class="text-4xl mt-4 mb-2 font-bold text-white">República dos Pastéis</h1>
+        <div class="w-full h-full flex flex-col justify-center items-center animate-fade-in bg-black/40">
+            <img src="./assets/avatar.png" alt="Logo República dos Pastéis"
+                class="w-32 h-32 rounded-full shadow-lg border-4 border-orange-500 hover:scale-110 duration-300" />
+            <h1 class="text-4xl mt-4 mb-2 font-bold text-white text-shadow">República dos Pastéis</h1>
 
-            <a 
-                class="text-white font-medium hover:text-orange-300 transition-colors flex items-center gap-2" 
-                href="https://maps.app.goo.gl/EBC9Kow62HcokxGn6" 
-                target="_blank"
-                rel="noopener"
-                aria-label="Nosso endereço: Avenida Doutor José Thomas D'Avila Nabuco, 579. Abrir no Google Maps."
-            >
-                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                <span>Av. Doutor José Thomas D'Avila Nabuco, 579</span>
-            </a>
-            
-            <a 
-                class="text-white font-medium mt-2 hover:text-orange-300 transition-colors flex items-center gap-2"
-                href="tel:+5579981575934" 
-                target="_blank"
-                aria-label="Nosso telefone: 7-9 9 8-1-5-7 5-9-3-4"
-            >
-                <i class="fas fa-phone" aria-hidden="true"></i>
-                <span>(79) 9 8157-5934</span>
-            </a>
+            <div class="flex flex-col items-center text-white/90 space-y-1">
+                <a class="hover:text-orange-300 transition-colors flex items-center gap-2"
+                    href="https://maps.app.goo.gl/EBC9Kow62HcokxGn6" target="_blank" rel="noopener">
+                    <i class="fas fa-map-marker-alt text-orange-500"></i>
+                    <span>Av. Doutor José Thomas D'Avila Nabuco, 579</span>
+                </a>
+                <a class="hover:text-orange-300 transition-colors flex items-center gap-2" href="tel:+5579981575934">
+                    <i class="fas fa-phone text-orange-500"></i>
+                    <span>(79) 9 8157-5934</span>
+                </a>
+            </div>
 
-            <div class="bg-green-600 hover:bg-green-700 transition-colors px-4 py-1 rounded-lg mt-5 shadow-md" id="date-span">
-                <span class="text-white font-medium flex items-center gap-2">
-                    <i class="fas fa-clock" aria-hidden="true"></i>
+            <div class="bg-green-600 px-4 py-1.5 rounded-full mt-5 shadow-lg border border-green-500" id="date-span">
+                <span class="text-white font-medium flex items-center gap-2 text-sm">
+                    <i class="fas fa-clock"></i>
                     <span>Terça à Domingo - 16:00 às 22:00</span>
                 </span>
             </div>
         </div>
     </header>
-    <!-- FIM HEADER -->    <!--CONHEÇA NOSSO CARDÁPIO-->
-    <div class="mx-auto max-w-7xl px-2 my-2 bg-orange-600 dark:bg-orange-700 py-1 rounded-lg mt-2 shadow-md">
-        <h2 class="text-2xl md:text-2xl text-white font-bold text-center mt-1 mb-1">Conheça nosso cardápio</h2>
-    </div>
-    <!--FIM DO CONHEÇA NOSSO CARDÁPIO-->
 
-    <!-- MENU NAVIGATION TABS -->
-    <div class="mx-auto max-w-7xl px-2 mt-4 mb-6">
-        <nav class="flex flex-wrap justify-center gap-2 md:gap-4" role="tablist" aria-label="Categorias do cardápio">
-            <button 
-                id="tab-pasteis" 
-                class="category-tab px-4 py-2 bg-orange-600 text-white rounded-lg font-medium hover:bg-orange-700 transition-colors active-tab"
-                role="tab"
-                aria-selected="true"
-                aria-controls="section-pasteis"
-                data-target="section-pasteis"
-            >
-                <i class="fas fa-utensils mr-2" aria-hidden="true"></i>Pastéis
-            </button>
-            
-            <button 
-                id="tab-especiais" 
-                class="category-tab px-4 py-2 bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 rounded-lg font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                role="tab"
-                aria-selected="false"
-                aria-controls="section-especiais"
-                data-target="section-especiais"
-            >
-                <i class="fas fa-star mr-2" aria-hidden="true"></i>Caprichado
-            </button>
-            
-            <button 
-                id="tab-doces" 
-                class="category-tab px-4 py-2 bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 rounded-lg font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                role="tab"
-                aria-selected="false" 
-                aria-controls="section-doces"
-                data-target="section-doces"
-            >
-                <i class="fas fa-cookie mr-2" aria-hidden="true"></i>Doces
-            </button>
-            
-            <button 
-                id="tab-bebidas" 
-                class="category-tab px-4 py-2 bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 rounded-lg font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                role="tab"
-                aria-selected="false"
-                aria-controls="section-bebidas"
-                data-target="section-bebidas"
-            >
-                <i class="fas fa-glass-cheers mr-2" aria-hidden="true"></i>Bebidas
-            </button>
-        </nav>
-    </div>    <!-- MODAL CARRINHO -->    <div id="cart-modal" class="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 z-50 items-center justify-center hidden backdrop-blur-sm" role="dialog" aria-labelledby="cart-title" aria-modal="true">
-        <div class="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-lg max-w-lg w-full mx-4 max-h-[80vh] overflow-hidden flex flex-col animate-slide-up shadow-2xl border border-gray-200 dark:border-gray-700">
-            <div class="flex items-center justify-between mb-4 pb-2 border-b border-gray-200 dark:border-gray-700">
-                <h3 id="cart-title" class="text-xl font-bold flex items-center">
-                    <i class="fas fa-shopping-cart text-orange-500 mr-2" aria-hidden="true"></i>
-                    <span>Seu Carrinho</span>
+    <!-- CATEGORY TABS -->
+    <div class="sticky top-0 z-40 bg-white dark:bg-zinc-900 shadow-md border-b border-gray-200 dark:border-gray-800">
+        <div class="mx-auto max-w-7xl px-2 py-3 overflow-x-auto no-scrollbar">
+            <nav class="flex justify-center gap-3 md:gap-4" role="tablist">
+                <button
+                    class="category-tab px-5 py-2.5 bg-orange-600 text-white rounded-full font-semibold shadow-md active-tab flex items-center gap-2 whitespace-nowrap"
+                    role="tab" aria-selected="true" data-target="section-pasteis">
+                    <i class="fas fa-utensils"></i>Pastéis
+                </button>
+                <button
+                    class="category-tab px-5 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full font-semibold hover:bg-gray-200 transition-all flex items-center gap-2 whitespace-nowrap"
+                    role="tab" aria-selected="false" data-target="section-especiais">
+                    <i class="fas fa-star text-yellow-500"></i>Caprichado
+                </button>
+                <button
+                    class="category-tab px-5 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full font-semibold hover:bg-gray-200 transition-all flex items-center gap-2 whitespace-nowrap"
+                    role="tab" aria-selected="false" data-target="section-doces">
+                    <i class="fas fa-cookie text-pink-500"></i>Doces
+                </button>
+                <button
+                    class="category-tab px-5 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full font-semibold hover:bg-gray-200 transition-all flex items-center gap-2 whitespace-nowrap"
+                    role="tab" aria-selected="false" data-target="section-cuscuz">
+                    <i class="fas fa-bowl-rice text-amber-700"></i>Cuscuz
+                </button>
+                <button
+                    class="category-tab px-5 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full font-semibold hover:bg-gray-200 transition-all flex items-center gap-2 whitespace-nowrap"
+                    role="tab" aria-selected="false" data-target="section-bebidas">
+                    <i class="fas fa-glass-cheers text-blue-500"></i>Bebidas
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- MAIN MENU CONTENT -->
+    <main id="menu-sections" class="mx-auto max-w-7xl px-4 mt-8 pb-32">
+
+        <!-- SEÇÃO: PASTÉIS -->
+        <section id="section-pasteis" class="tab-content animate-fade-in">
+            <div class="mb-6 flex items-center gap-3">
+                <div class="h-8 w-1.5 bg-orange-600 rounded-full"></div>
+                <h2 class="text-2xl font-bold dark:text-white">Pastéis Salgados</h2>
+            </div>
+            <div id="section-pasteis-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Itens renderizados pelo menu-renderer.js -->
+                <div class="col-span-full flex justify-center py-20">
+                    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: CAPRICHADOS -->
+        <section id="section-especiais" class="tab-content hidden animate-fade-in">
+            <div class="mb-4 bg-orange-600 p-4 rounded-xl text-white shadow-lg">
+                <h2 class="text-2xl font-bold text-center">Pastel Caprichado</h2>
+                <p class="text-center text-orange-100 text-sm">(Mesmo tamanho, com o dobro de recheio - Adicional de R$
+                    2,00)</p>
+            </div>
+            <div id="section-especiais-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Itens renderizados pelo menu-renderer.js -->
+            </div>
+        </section>
+
+        <!-- SEÇÃO: DOCES -->
+        <section id="section-doces" class="tab-content hidden animate-fade-in">
+            <div class="mb-6 flex items-center gap-3">
+                <div class="h-8 w-1.5 bg-pink-500 rounded-full"></div>
+                <h2 class="text-2xl font-bold dark:text-white">Pastéis Doces</h2>
+            </div>
+            <div id="section-doces-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Itens renderizados pelo menu-renderer.js -->
+            </div>
+        </section>
+
+        <!-- SEÇÃO: CUSCUZ -->
+        <section id="section-cuscuz" class="tab-content hidden animate-fade-in">
+            <div class="mb-6 flex items-center gap-3">
+                <div class="h-8 w-1.5 bg-amber-700 rounded-full"></div>
+                <h2 class="text-2xl font-bold dark:text-white">Cuscuz Recheado</h2>
+            </div>
+            <div id="section-cuscuz-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Itens renderizados pelo menu-renderer.js -->
+            </div>
+        </section>
+
+        <!-- SEÇÃO: BEBIDAS -->
+        <section id="section-bebidas" class="tab-content hidden animate-fade-in">
+            <div class="mb-6 flex items-center gap-3">
+                <div class="h-8 w-1.5 bg-blue-500 rounded-full"></div>
+                <h2 class="text-2xl font-bold dark:text-white">Bebidas</h2>
+            </div>
+            <div id="section-bebidas-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Itens renderizados pelo menu-renderer.js -->
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL DO CARRINHO (WIZARD CHECKOUT) -->
+    <div id="cart-modal"
+        class="fixed inset-0 bg-black/60 z-50 hidden flex-col items-center justify-end md:justify-center backdrop-blur-sm p-0 md:p-4 transition-all duration-300">
+        <div
+            class="bg-white dark:bg-zinc-800 w-full max-w-lg rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col shadow-2xl animate-slide-up h-[90vh] md:h-auto md:max-h-[85vh]">
+
+            <!-- Modal Header -->
+            <div class="p-4 border-b dark:border-zinc-700 flex items-center justify-between">
+                <h3 class="text-xl font-bold flex items-center gap-2 dark:text-white">
+                    <i class="fas fa-shopping-cart text-orange-500"></i>
+                    <span>Finalizar Pedido</span>
                 </h3>
-                <button 
-                    id="close-modal-btn" 
-                    class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500" 
-                    aria-label="Fechar carrinho"
-                >
-                    <i class="fas fa-times text-xl" aria-hidden="true"></i>
+                <button id="close-modal-btn"
+                    class="p-2 hover:bg-gray-100 dark:hover:bg-zinc-700 rounded-full transition-colors text-gray-500">
+                    <i class="fas fa-times text-xl"></i>
                 </button>
             </div>
-              <!-- Indicador de passos do checkout -->
-            <div class="checkout-steps flex justify-between items-center mb-4 px-2">
-                <div class="checkout-step active" data-step="1">
-                    <div class="step-circle bg-orange-500 text-white">1</div>
-                    <span class="step-text">Resumo</span>
-                </div>
-                <div class="checkout-step-line"></div>
-                <div class="checkout-step" data-step="2">
-                    <div class="step-circle">2</div>
-                    <span class="step-text">Recebimento</span>
-                </div>
-                <div class="checkout-step-line"></div>
-                <div class="checkout-step" data-step="3">
-                    <div class="step-circle">3</div>
-                    <span class="step-text">Endereço</span>
-                </div>
-                <div class="checkout-step-line"></div>
-                <div class="checkout-step" data-step="4">
-                    <div class="step-circle">4</div>
-                    <span class="step-text">Pagamento</span>
-                </div>            </div>            <!-- Etapa 1: Carrinho -->
-            <div id="checkout-step-1" class="checkout-step-content active">
-                <div class="step-description mb-2">
-                    <p>Confira os itens do seu pedido abaixo.</p>
-                </div>
-                
-                <!-- Conteúdo com scroll -->
-                <div class="cart-scrollable-content">
-                    <div 
-                        id="cart-items" 
-                        class="mb-4 scroll-smooth" 
-                        aria-live="polite"
-                        aria-relevant="additions removals"
-                    >
-                        <!-- Items do carrinho serão adicionados aqui -->
+
+            <!-- Checkout Steps -->
+            <div class="px-6 py-4 border-b dark:border-zinc-700 bg-gray-50 dark:bg-zinc-800/50">
+                <div class="flex justify-between items-center relative">
+                    <div class="checkout-step active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <span class="text-[10px] md:text-xs font-semibold mt-1">Carrinho</span>
                     </div>
-                      <!-- Total do pedido -->
-                    <div id="order-summary-container" class="mb-2">
-                        <!-- Conteúdo gerado pela função generateOrderSummary() -->
+                    <div class="checkout-step" data-step="2">
+                        <div class="step-circle">2</div>
+                        <span class="text-[10px] md:text-xs font-semibold mt-1">Entrega</span>
                     </div>
-                </div>
-                
-                <!-- Botões de navegação fixos -->
-                <div class="cart-nav-buttons">
-                    <div class="flex justify-end">
-                        <button 
-                            id="step-1-next" 
-                            class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-3 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 shadow-md hover:shadow-lg flex items-center justify-center"
-                            aria-label="Continuar para entrega/retirada"
-                        >
-                            <span>Continuar</span>
-                            <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
-                        </button>
+                    <div class="checkout-step" data-step="3">
+                        <div class="step-circle">3</div>
+                        <span class="text-[10px] md:text-xs font-semibold mt-1">Endereço</span>
                     </div>
-                </div>
-            </div><!-- Etapa 2: Método de Recebimento -->
-            <div id="checkout-step-2" class="checkout-step-content hidden">
-                <div class="step-description mb-2">
-                    <p>Escolha como deseja receber seu pedido.</p>
-                </div>
-                
-                <!-- Conteúdo com scroll -->
-                <div class="cart-scrollable-content">
-                    <div class="mb-4">
-                        <h4 class="text-lg font-medium mb-4 flex items-center text-gray-800 dark:text-gray-200">
-                            <i class="fas fa-shipping-fast text-orange-500 mr-2"></i>
-                            Como deseja receber seu pedido?
-                        </h4>
-                        
-                        <div class="flex flex-col gap-4">
-                            <div class="delivery-option border rounded-lg p-4 cursor-pointer hover:border-orange-500 transition-colors">
-                                <label class="flex items-start gap-3 cursor-pointer">
-                                    <input type="radio" name="delivery-option" value="delivery" class="mt-1" checked>
-                                    <div>
-                                        <p class="font-medium text-gray-800 dark:text-gray-200">Entrega em casa</p>
-                                        <p class="text-sm text-gray-600 dark:text-gray-400">Receba seu pedido no endereço informado</p>
-                                    </div>
-                                </label>
-                            </div>
-                            
-                            <div class="delivery-option border rounded-lg p-4 cursor-pointer hover:border-orange-500 transition-colors">
-                                <label class="flex items-start gap-3 cursor-pointer">
-                                    <input type="radio" name="delivery-option" value="pickup" class="mt-1">
-                                    <div>
-                                        <p class="font-medium text-gray-800 dark:text-gray-200">Retirar na loja</p>
-                                        <p class="text-sm text-gray-600 dark:text-gray-400">Buscar no local: Av. Doutor José Thomas D'Avila Nabuco, 579</p>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Botões de navegação fixos -->
-                <div class="cart-nav-buttons">
-                    <div class="flex justify-between">
-                        <button 
-                            id="step-2-prev" 
-                            class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-3 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 shadow-md hover:shadow-lg flex items-center justify-center"
-                        >
-                            <i class="fas fa-arrow-left mr-2" aria-hidden="true"></i>
-                            <span>Voltar</span>
-                        </button>
-                        <button 
-                            id="step-2-next" 
-                            class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-3 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 shadow-md hover:shadow-lg flex items-center justify-center"
-                        >
-                            <span>Continuar</span>
-                            <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>            <!-- Etapa de Identificação para Retirada na Loja -->
-            <div id="checkout-step-pickup" class="checkout-step-content hidden">
-                <div class="step-description mb-2">
-                    <p>Por favor, informe seus dados para identificação na retirada.</p>
-                </div>
-                
-                <!-- Conteúdo com scroll -->
-                <div class="cart-scrollable-content">
-                    <div class="pickup-form">
-                        <h4 class="text-lg font-medium mb-3 flex items-center text-gray-800 dark:text-gray-200">
-                            <i class="fas fa-user text-orange-500 mr-2"></i>
-                            Identificação do Cliente
-                        </h4>
-                        
-                        <div class="form-group">
-                            <label for="pickup-name">
-                                Nome completo
-                                <span class="required-mark">*</span>
-                            </label>
-                            <input 
-                                type="text" 
-                                id="pickup-name" 
-                                class="form-input dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
-                                placeholder="Digite seu nome completo"
-                                required
-                                aria-required="true"
-                            >
-                            <div id="pickup-name-error" class="error-message">
-                                <i class="fas fa-exclamation-circle mr-1"></i>
-                                Nome completo é obrigatório
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="pickup-phone">
-                                Telefone para contato
-                                <span class="required-mark">*</span>
-                            </label>
-                            <input 
-                                type="tel" 
-                                id="pickup-phone" 
-                                class="form-input dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
-                                placeholder="(XX) XXXXX-XXXX"
-                                required
-                                aria-required="true"
-                            >
-                            <div id="pickup-phone-error" class="error-message">
-                                <i class="fas fa-exclamation-circle mr-1"></i>
-                                Telefone para contato é obrigatório
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="pickup-notes">
-                                Observações (opcional)
-                            </label>
-                            <textarea 
-                                id="pickup-notes" 
-                                class="form-input dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
-                                placeholder="Informações adicionais para seu pedido"
-                                rows="2"
-                                aria-required="false"
-                            ></textarea>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Botões de navegação fixos -->
-                <div class="cart-nav-buttons">
-                    <div class="flex justify-between">
-                        <button 
-                            id="step-pickup-prev" 
-                            class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-3 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 shadow-md hover:shadow-lg flex items-center justify-center"
-                        >
-                            <i class="fas fa-arrow-left mr-2" aria-hidden="true"></i>
-                            <span>Voltar</span>
-                        </button>
-                        <button 
-                            id="step-pickup-next" 
-                            class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-3 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 shadow-md hover:shadow-lg flex items-center justify-center"
-                        >
-                            <span>Continuar</span>
-                            <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
-                        </button>
+                    <div class="checkout-step" data-step="4">
+                        <div class="step-circle">4</div>
+                        <span class="text-[10px] md:text-xs font-semibold mt-1">Pagar</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Etapa 3: Endereço de Entrega (condicional) -->
-            <div id="checkout-step-3" class="checkout-step-content hidden">
-                <div class="step-description mb-2">
-                    <p>Informe seu endereço completo para entrega.</p>
-                </div>
-                
-                <!-- Conteúdo com scroll -->
-                <div class="cart-scrollable-content">
-                    <div class="mb-4">
-                        <h4 class="text-lg font-medium mb-3 flex items-center text-gray-800 dark:text-gray-200">
-                            <i class="fas fa-map-marker-alt text-orange-500 mr-2"></i>
-                            Endereço de entrega
-                        </h4>
-                        
-                        <div class="mb-4">
-                            <textarea 
-                                id="address" 
-                                class="cart-input w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
-                                placeholder="Ex: Rua das Flores, 123, Apto 101, Bairro Jardim - Próximo à Farmácia"
-                                rows="2"
-                                aria-required="true"
-                            ></textarea>
-                            <p id="address-warn" class="text-red-500 hidden mt-1 text-sm">
-                                <i class="fas fa-exclamation-circle mr-1"></i>
-                                Por favor, informe seu endereço
-                            </p>
-                        </div>
+            <!-- Content Area -->
+            <div class="flex-1 overflow-hidden relative">
+
+                <!-- Step 1: Items -->
+                <div id="checkout-step-1" class="checkout-step-content active p-6 flex flex-col h-full">
+                    <div class="cart-scrollable-content flex-1 overflow-y-auto pr-2">
+                        <div id="cart-items" class="space-y-1"></div>
+                        <div id="order-summary-container"></div>
                     </div>
-                </div>
-                
-                <!-- Botões de navegação fixos -->
-                <div class="cart-nav-buttons">
-                    <div class="flex justify-between">
-                        <button 
-                            id="step-3-prev" 
-                            class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-3 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 shadow-md hover:shadow-lg flex items-center justify-center"
-                        >
-                            <i class="fas fa-arrow-left mr-2" aria-hidden="true"></i>
-                            <span>Voltar</span>
-                        </button>
-                        <button 
-                            id="step-3-next" 
-                            class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-3 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 shadow-md hover:shadow-lg flex items-center justify-center"
-                        >
-                            <span>Continuar</span>
-                            <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
+                    <div class="pt-4 mt-auto border-t dark:border-zinc-700">
+                        <button id="step-1-next"
+                            class="w-full bg-orange-600 text-white py-4 rounded-xl font-bold shadow-lg hover:bg-orange-700 transition-all flex items-center justify-center gap-2">
+                            <span>Continuar para Entrega</span>
+                            <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
-            </div>            <!-- Etapa 4: Forma de Pagamento -->
-            <div id="checkout-step-4" class="checkout-step-content hidden">
-                <div class="step-description mb-2">
-                    <p>Selecione a forma de pagamento para finalizar seu pedido.</p>
-                </div>
-                
-                <!-- Conteúdo com scroll -->
-                <div class="cart-scrollable-content">
-                    <div class="mb-4">
-                        <h4 class="text-lg font-medium mb-3 flex items-center text-gray-800 dark:text-gray-200">
-                            <i class="fas fa-credit-card text-orange-500 mr-2"></i>
-                            Forma de pagamento
-                        </h4>
-                        
-                        <div class="mb-4">
-                            <select 
-                                id="payment-method" 
-                                class="cart-input w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
-                                aria-required="true"
-                            >
-                                <option value="">Selecione a forma de pagamento</option>
-                                <option value="money">Dinheiro</option>
-                                <option value="card">Cartão (na entrega)</option>
-                                <option value="pix">PIX</option>
-                            </select>
-                            <p id="payment-warn" class="text-red-500 hidden mt-1 text-sm">
-                                <i class="fas fa-exclamation-circle mr-1"></i>
-                                Por favor, selecione a forma de pagamento
-                            </p>
+
+                <!-- Step 2: Delivery -->
+                <div id="checkout-step-2" class="checkout-step-content hidden p-6 flex flex-col h-full">
+                    <div class="cart-scrollable-content flex-1 space-y-4 overflow-y-auto">
+                        <h4 class="font-bold text-lg dark:text-white">Escolha como prefere receber:</h4>
+                        <div class="space-y-3">
+                            <label
+                                class="flex items-center p-4 border-2 border-gray-200 dark:border-zinc-700 rounded-2xl cursor-pointer hover:border-orange-500 dark:hover:border-orange-500 transition-all">
+                                <input type="radio" name="delivery-option" value="delivery"
+                                    class="w-5 h-5 accent-orange-600" checked>
+                                <div class="ml-4">
+                                    <p class="font-bold dark:text-white">Entrega no Endereço</p>
+                                    <p class="text-sm text-gray-500">Levamos até você!</p>
+                                </div>
+                            </label>
+                            <label
+                                class="flex items-center p-4 border-2 border-gray-200 dark:border-zinc-700 rounded-2xl cursor-pointer hover:border-orange-500 dark:hover:border-orange-500 transition-all">
+                                <input type="radio" name="delivery-option" value="pickup"
+                                    class="w-5 h-5 accent-orange-600">
+                                <div class="ml-4">
+                                    <p class="font-bold dark:text-white">Retirada na Loja</p>
+                                    <p class="text-sm text-gray-500">Você busca no nosso balcão.</p>
+                                </div>
+                            </label>
                         </div>
-                        
-                        <!-- Resumo final do pedido -->
-                        <div class="border-t border-gray-300 dark:border-gray-600 pt-3 mt-4">
-                            <p class="font-medium text-gray-700 dark:text-gray-300 mb-2">Resumo final:</p>
-                            <div id="final-order-summary" class="text-sm text-gray-600 dark:text-gray-400">
-                                <!-- Será preenchido via JavaScript -->
+                    </div>
+                    <div class="pt-4 mt-auto flex gap-3">
+                        <button id="step-2-prev"
+                            class="flex-1 bg-gray-200 dark:bg-zinc-700 text-gray-700 dark:text-gray-200 py-4 rounded-xl font-bold">Voltar</button>
+                        <button id="step-2-next"
+                            class="flex-[2] bg-orange-600 text-white py-4 rounded-xl font-bold shadow-lg">Próximo
+                            Passo</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Address -->
+                <div id="checkout-step-3" class="checkout-step-content hidden p-6 flex flex-col h-full">
+                    <div class="cart-scrollable-content flex-1 space-y-4 overflow-y-auto">
+                        <h4 class="font-bold text-lg dark:text-white">Onde devemos entregar?</h4>
+                        <div class="space-y-3">
+                            <div>
+                                <label class="text-sm font-semibold mb-1 block dark:text-gray-300">Endereço
+                                    Completo*</label>
+                                <textarea id="address"
+                                    class="w-full bg-gray-100 dark:bg-zinc-700 border-none rounded-xl p-4 min-h-[100px] focus:ring-2 focus:ring-orange-500 dark:text-white"
+                                    placeholder="Rua, número, complemento e ponto de referência..."></textarea>
                             </div>
                         </div>
                     </div>
+                    <div class="pt-4 mt-auto flex gap-3">
+                        <button id="step-3-prev"
+                            class="flex-1 bg-gray-200 dark:bg-zinc-700 text-gray-700 dark:text-gray-200 py-4 rounded-xl font-bold">Voltar</button>
+                        <button id="step-3-next"
+                            class="flex-[2] bg-orange-600 text-white py-4 rounded-xl font-bold shadow-lg">Ir para
+                            Pagamento</button>
+                    </div>
                 </div>
-                
-                <!-- Botões de navegação fixos -->
-                <div class="cart-nav-buttons">
-                    <div class="flex justify-between">
-                        <button 
-                            id="step-4-prev" 
-                            class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-3 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 shadow-md hover:shadow-lg flex items-center justify-center"
-                        >
-                            <i class="fas fa-arrow-left mr-2" aria-hidden="true"></i>
-                            <span>Voltar</span>
-                        </button>
-                        <button 
-                            id="checkout-btn" 
-                            class="bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 shadow-md hover:shadow-lg flex items-center justify-center"
-                            aria-label="Finalizar pedido"
-                        >
-                            <i class="fas fa-check mr-2" aria-hidden="true"></i>
-                            Finalizar Pedido
+
+                <!-- Step 4: Payment & Finish -->
+                <div id="checkout-step-4" class="checkout-step-content hidden p-6 flex flex-col h-full">
+                    <div class="cart-scrollable-content flex-1 space-y-4 overflow-y-auto">
+                        <div id="final-order-summary"></div>
+                        <div class="space-y-3">
+                            <label class="text-sm font-semibold mb-1 block dark:text-gray-300">Forma de
+                                Pagamento*</label>
+                            <select id="payment-method"
+                                class="w-full bg-gray-100 dark:bg-zinc-700 border-none rounded-xl p-4 focus:ring-2 focus:ring-orange-500 dark:text-white">
+                                <option value="">Selecione uma opção...</option>
+                                <option value="Pix">Pix (Rápido e Fácil)</option>
+                                <option value="Cartão de Crédito">Cartão de Crédito</option>
+                                <option value="Cartão de Débito">Cartão de Débito</option>
+                                <option value="Dinheiro">Dinheiro (Trazer troco?)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="pt-4 mt-auto flex gap-3">
+                        <button id="step-4-prev"
+                            class="flex-1 bg-gray-200 dark:bg-zinc-700 text-gray-700 dark:text-gray-200 py-4 rounded-xl font-bold">Voltar</button>
+                        <button id="checkout-btn"
+                            class="flex-[2] bg-green-600 text-white py-4 rounded-xl font-bold shadow-lg hover:bg-green-700 transition-all flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                            <span>Enviar para WhatsApp</span>
                         </button>
                     </div>
                 </div>
@@ -462,1876 +316,64 @@
         </div>
     </div>
 
-    <!--INICIO CARDÁPIO-->
-    <div class="mt-2" id="menu" aria-label="Cardápio">
-
-        <!--INÌCIO - Pasteis normais-->
-        <main class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
-
-        <!-- Pastel de vento -->        <div class="flex gap-2 menu-item p-3 rounded-lg animate-fade-in">
-            <img src="./assets/pastel.jpg" alt="Pastel de vento tradicional" class="w-28 h-28 rounded-md hover:scale-110 duration-300" loading="lazy"/>
-            <div class="w-full">
-                <h3 class="font-bold text-lg">Pastel de vento</h3>
-                <p class="text-sm">Massa crocante tradicional</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg" aria-label="Preço: 7 reais">R$ 7.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 dark:bg-gray-700 rounded" role="group" aria-label="Controle de quantidade">
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="decrease" aria-label="Diminuir quantidade">
-                                <i class="fas fa-minus" aria-hidden="true"></i>
-                            </button>
-                            <span class="quantity-display px-3" aria-live="polite">1</span>
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="increase" aria-label="Aumentar quantidade">
-                                <i class="fas fa-plus" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Pastel de vento"
-                                data-price="7.00"
-                                aria-label="Adicionar Pastel de vento ao carrinho">
-                            <i class="fa fa-cart-plus text-lg text-white" aria-hidden="true"></i>
-                            <span class="sr-only">Adicionar ao carrinho</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+    <!-- BOTÃO FLUTUANTE DO CARRINHO -->
+    <button id="fixed-cart-btn"
+        class="fixed bottom-6 right-6 z-50 bg-orange-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all group">
+        <div class="relative">
+            <i class="fas fa-shopping-basket text-2xl"></i>
+            <span id="fixed-cart-count"
+                class="absolute -top-2 -right-2 bg-green-500 text-[10px] font-bold h-5 w-5 rounded-full flex items-center justify-center border-2 border-white dark:border-zinc-900 hidden">0</span>
         </div>
-        <!--FIM Pastel de vento -->        <!-- Carne -->
-        <div class="flex gap-2 menu-item p-3 rounded-lg animate-fade-in">
-            <img src="./assets/pastel.jpg" alt="Pastel de carne" class="w-28 h-28 rounded-md hover:scale-110 duration-300" loading="lazy"/>
-            <div class="w-full">
-                <h3 class="font-bold text-lg">Carne</h3>
-                <p class="text-sm">Pastel recheado com carne moída temperada</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 9.00</p>                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 dark:bg-gray-700 rounded" role="group" aria-label="Controle de quantidade">
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="decrease" aria-label="Diminuir quantidade">
-                                <i class="fas fa-minus" aria-hidden="true"></i>
-                            </button>
-                            <span class="quantity-display px-3" aria-live="polite">1</span>
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="increase" aria-label="Aumentar quantidade">
-                                <i class="fas fa-plus" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Carne"
-                                data-price="9.00"
-                                aria-label="Adicionar Carne ao carrinho">
-                            <i class="fa fa-cart-plus text-lg text-white" aria-hidden="true"></i>
-                            <span class="sr-only">Adicionar ao carrinho</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--FIM Carne -->        <!-- Carne com queijo coalho  -->
-        <div class="flex gap-2 menu-item p-3 rounded-lg animate-fade-in">
-            <img src="./assets/pastel.jpg" alt="Pastel de carne com queijo" class="w-28 h-28 rounded-md hover:scale-110 duration-300" loading="lazy"/>
-            <div class="w-full">
-                <h3 class="font-bold text-lg">Carne com queijo</h3>
-                <p class="text-sm">Pastel recheado com carne moída e queijo coalho </p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg" aria-label="Preço: 10 reais">R$ 10.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 dark:bg-gray-700 rounded" role="group" aria-label="Controle de quantidade">
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="decrease" aria-label="Diminuir quantidade">
-                                <i class="fas fa-minus" aria-hidden="true"></i>
-                            </button>
-                            <span class="quantity-display px-3" aria-live="polite">1</span>
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="increase" aria-label="Aumentar quantidade">
-                                <i class="fas fa-plus" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Carne c/queijo"
-                                data-price="10.00"
-                                aria-label="Adicionar Carne com queijo coalho ao carrinho">
-                            <i class="fa fa-cart-plus text-lg text-white" aria-hidden="true"></i>
-                            <span class="sr-only">Adicionar ao carrinho</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--FIM Carne c/queijo coalho  -->        <!-- Carne com catupiry  -->
-        <div class="flex gap-2 menu-item p-3 rounded-lg animate-fade-in">
-            <img src="./assets/pastel.jpg" alt="Pastel de carne com catupiry" class="w-28 h-28 rounded-md hover:scale-110 duration-300" loading="lazy"/>
-            <div class="w-full">
-                <h3 class="font-bold text-lg">Carne com catupiry</h3>
-                <p class="text-sm">Pastel recheado com carne moída e catupiry </p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg" aria-label="Preço: 10 reais">R$ 10.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 dark:bg-gray-700 rounded" role="group" aria-label="Controle de quantidade">
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="decrease" aria-label="Diminuir quantidade">
-                                <i class="fas fa-minus" aria-hidden="true"></i>
-                            </button>
-                            <span class="quantity-display px-3" aria-live="polite">1</span>
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="increase" aria-label="Aumentar quantidade">
-                                <i class="fas fa-plus" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Carne com catupiry"
-                                data-price="10.00"
-                                aria-label="Adicionar Carne com catupiry ao carrinho">
-                            <i class="fa fa-cart-plus text-lg text-white" aria-hidden="true"></i>
-                            <span class="sr-only">Adicionar ao carrinho</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--FIM Carne com catupiry  -->
-              <!-- Frango -->
-        <div class="flex gap-2 menu-item p-3 rounded-lg animate-fade-in">
-            <img src="./assets/pastel.jpg" alt="Pastel de frango" class="w-28 h-28 rounded-md hover:scale-110 duration-300" loading="lazy"/>
-            <div class="w-full">
-                <h3 class="font-bold text-lg">Frango</h3>
-                <p class="text-sm">Pastel recheado com frango desfiado temperado</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg" aria-label="Preço: 9 reais">R$ 9.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 dark:bg-gray-700 rounded" role="group" aria-label="Controle de quantidade">
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="decrease" aria-label="Diminuir quantidade">
-                                <i class="fas fa-minus" aria-hidden="true"></i>
-                            </button>
-                            <span class="quantity-display px-3" aria-live="polite">1</span>
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="increase" aria-label="Aumentar quantidade">
-                                <i class="fas fa-plus" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Frango"
-                                data-price="9.00"
-                                aria-label="Adicionar Frango ao carrinho">
-                            <i class="fa fa-cart-plus text-lg text-white" aria-hidden="true"></i>
-                            <span class="sr-only">Adicionar ao carrinho</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--FIM Frango -->        <!-- Frango c/queijo coalho-->
-        <div class="flex gap-2 menu-item p-3 rounded-lg animate-fade-in">
-            <img src="./assets/pastel.jpg" alt="Pastel de frango com queijo coalho" class="w-28 h-28 rounded-md hover:scale-110 duration-300" loading="lazy"/>
-            <div class="w-full">
-                <h3 class="font-bold text-lg">Frango com queijo coalho</h3>
-                <p class="text-sm">Frango desfiado com queijo coalho</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg" aria-label="Preço: 10 reais">R$ 10.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 dark:bg-gray-700 rounded" role="group" aria-label="Controle de quantidade">
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="decrease" aria-label="Diminuir quantidade">
-                                <i class="fas fa-minus" aria-hidden="true"></i>
-                            </button>
-                            <span class="quantity-display px-3" aria-live="polite">1</span>
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="increase" aria-label="Aumentar quantidade">
-                                <i class="fas fa-plus" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Frango c/queijo"
-                                data-price="10.00"
-                                aria-label="Adicionar Frango com queijo coalho ao carrinho">
-                            <i class="fa fa-cart-plus text-lg text-white" aria-hidden="true"></i>
-                            <span class="sr-only">Adicionar ao carrinho</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--FIM Frango c/queijo coalho-->        <!-- Frango com  catupiry -->
-        <div class="flex gap-2 menu-item p-3 rounded-lg animate-fade-in">
-            <img src="./assets/pastel.jpg" alt="Pastel de frango com catupiry" class="w-28 h-28 rounded-md hover:scale-110 duration-300" loading="lazy"/>
-            <div class="w-full">
-                <h3 class="font-bold text-lg">Frango com catupiry</h3>
-                <p class="text-sm">Frango desfiado com catupiry</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 10.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 dark:bg-gray-700 rounded" role="group" aria-label="Controle de quantidade">
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="decrease" aria-label="Diminuir quantidade">
-                                <i class="fas fa-minus" aria-hidden="true"></i>
-                            </button>
-                            <span class="quantity-display px-3" aria-live="polite">1</span>
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="increase" aria-label="Aumentar quantidade">
-                                <i class="fas fa-plus" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 hover:bg-orange-700 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Frango c/catupiry"
-                                data-price="10.00"
-                                aria-label="Adicionar Frango com catupiry ao carrinho">
-                            <i class="fa fa-cart-plus text-lg text-white" aria-hidden="true"></i>
-                            <span class="sr-only">Adicionar ao carrinho</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--FIM Frango com  catupiry -->        <!-- Frango aos três queijos -->
-        <div class="flex gap-2 menu-item p-3 rounded-lg animate-fade-in">
-            <img src="./assets/pastel.jpg" alt="Pastel de frango aos três queijos" class="w-28 h-28 rounded-md hover:scale-110 duration-300" loading="lazy"/>
-            <div class="w-full">
-                <h3 class="font-bold text-lg">Frango aos três queijos</h3>
-                <p class="text-sm">Frango com catupiry, coalho e cheddar</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg" aria-label="Preço: 11 reais">R$ 11.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 dark:bg-gray-700 rounded" role="group" aria-label="Controle de quantidade">
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="decrease" aria-label="Diminuir quantidade">
-                                <i class="fas fa-minus" aria-hidden="true"></i>
-                            </button>
-                            <span class="quantity-display px-3" aria-live="polite">1</span>
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="increase" aria-label="Aumentar quantidade">
-                                <i class="fas fa-plus" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Frango aos três queijos"
-                                data-price="11.00"
-                                aria-label="Adicionar Frango aos três queijos ao carrinho">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--FIM Frango aos três queijos -->        <!-- Três queijos -->
-        <div class="flex gap-2 menu-item p-3 rounded-lg animate-fade-in">
-            <img src="./assets/pastel.jpg" alt="Pastel três queijos" class="w-28 h-28 rounded-md hover:scale-110 duration-300" loading="lazy"/>
-            <div class="w-full">
-                <h3 class="font-bold text-lg">Três queijos</h3>
-                <p class="text-sm">Catupiry, coalho e cheddar</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg" aria-label="Preço: 11 reais">R$ 11.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 dark:bg-gray-700 rounded" role="group" aria-label="Controle de quantidade">
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="decrease" aria-label="Diminuir quantidade">
-                                <i class="fas fa-minus" aria-hidden="true"></i>
-                            </button>
-                            <span class="quantity-display px-3" aria-live="polite">1</span>
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="increase" aria-label="Aumentar quantidade">
-                                <i class="fas fa-plus" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Três queijos"
-                                data-price="11.00"
-                                aria-label="Adicionar Três queijos ao carrinho">
-                            <i class="fa fa-cart-plus text-lg text-white" aria-hidden="true"></i>
-                            <span class="sr-only">Adicionar ao carrinho</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--FIM Três queijos -->        <!-- Pizza -->
-        <div class="flex gap-2 menu-item p-3 rounded-lg animate-fade-in">
-            <img src="./assets/pastel.jpg" alt="Pastel de pizza" class="w-28 h-28 rounded-md hover:scale-110 duration-300" loading="lazy"/>
-            <div class="w-full">
-                <h3 class="font-bold text-lg">Pizza</h3>
-                <p class="text-sm">Molho de tomate, queijo, presunto e orégano</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg" aria-label="Preço: 10 reais">R$ 10.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 dark:bg-gray-700 rounded" role="group" aria-label="Controle de quantidade">
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="decrease" aria-label="Diminuir quantidade">
-                                <i class="fas fa-minus" aria-hidden="true"></i>
-                            </button>
-                            <span class="quantity-display px-3" aria-live="polite">1</span>
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="increase" aria-label="Aumentar quantidade">
-                                <i class="fas fa-plus" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Pizza"
-                                data-price="10.00"
-                                aria-label="Adicionar Pizza ao carrinho">
-                            <i class="fa fa-cart-plus text-lg text-white" aria-hidden="true"></i>
-                            <span class="sr-only">Adicionar ao carrinho</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--FIM Pizza -->        <!-- Misto -->
-        <div class="flex gap-2 menu-item p-3 rounded-lg animate-fade-in">
-            <img src="./assets/pastel.jpg" alt="Pastel misto" class="w-28 h-28 rounded-md hover:scale-110 duration-300" loading="lazy"/>
-            <div class="w-full">
-                <h3 class="font-bold text-lg">Misto</h3>
-                <p class="text-sm">Queijo coalho e presunto</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg" aria-label="Preço: 10 reais">R$ 10.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 dark:bg-gray-700 rounded" role="group" aria-label="Controle de quantidade">
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="decrease" aria-label="Diminuir quantidade">
-                                <i class="fas fa-minus" aria-hidden="true"></i>
-                            </button>
-                            <span class="quantity-display px-3" aria-live="polite">1</span>
-                            <button class="px-2 py-1 text-orange-600 dark:text-orange-400 quantity-btn" data-action="increase" aria-label="Aumentar quantidade">
-                                <i class="fas fa-plus" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Misto"
-                                data-price="10.00"
-                                aria-label="Adicionar Misto ao carrinho">
-                            <i class="fa fa-cart-plus text-lg text-white" aria-hidden="true"></i>
-                            <span class="sr-only">Adicionar ao carrinho</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Queijo -->
-        <div class="flex gap-2">
-            <img src="./assets/pastel.jpg" alt="Pastel" class="w-28 h-28 rounded-md hover:scale-110 duration-300"/>
-            <div class="w-full">
-                <p class="font-bold">Queijo</p>
-                <p class="text-sm">Escolha: queijo coalho ou cheddar</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 10.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 rounded">
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="decrease">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity-display px-3">1</span>
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="increase">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Queijo"
-                                data-price="10.00">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Charque -->
-        <div class="flex gap-2">
-            <img src="./assets/pastel.jpg" alt="Pastel" class="w-28 h-28 rounded-md hover:scale-110 duration-300"/>
-            <div class="w-full">
-                <p class="font-bold">Charque</p>
-                <p class="text-sm">Pastel recheado com charque desfiada</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 13.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 rounded">
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="decrease">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity-display px-3">1</span>
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="increase">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Charque"
-                                data-price="13.00">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Charque c/queijo -->
-        <div class="flex gap-2">
-            <img src="./assets/pastel.jpg" alt="Pastel" class="w-28 h-28 rounded-md hover:scale-110 duration-300"/>
-            <div class="w-full">
-                <p class="font-bold">Charque c/queijo</p>
-                <p class="text-sm">Escolha: queijo coalho ou catupiry</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 14.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 rounded">
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="decrease">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity-display px-3">1</span>
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="increase">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Charque c/queijo"
-                                data-price="14.00">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-                <!-- Calabresa -->
-        <div class="flex gap-2">
-            <img src="./assets/pastel.jpg" alt="Pastel" class="w-28 h-28 rounded-md hover:scale-110 duration-300"/>
-            <div class="w-full">
-                <p class="font-bold">Calabresa</p>
-                <p class="text-sm">Pastel recheado com calabresa</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 10.50</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 rounded">
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="decrease">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity-display px-3">1</span>
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="increase">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Calabresa"
-                                data-price="10.50">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Calabresa com  queijo coalho -->
-        <div class="flex gap-2">
-            <img src="./assets/pastel.jpg" alt="Pastel" class="w-28 h-28 rounded-md hover:scale-110 duration-300"/>
-            <div class="w-full">
-                <p class="font-bold">Calabresa com queijo coalho</p>
-                <p class="text-sm">Pastel de calabresa com queijo coalho</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 11.50</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 rounded">
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="decrease">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity-display px-3">1</span>
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="increase">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-            <button class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                data-name="Calabresa com queijo coalho"
-                data-price="11.50">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Marguerita -->
-        <div class="flex gap-2">
-            <img src="./assets/pastel.jpg" alt="Pastel" class="w-28 h-28 rounded-md hover:scale-110 duration-300"/>
-            <div class="w-full">
-                <p class="font-bold">Marguerita</p>
-                <p class="text-sm">Queijo, tomate, orégano, manjericão</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 10.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 rounded">
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="decrease">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity-display px-3">1</span>
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="increase">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Marguerita"
-                                data-price="10.00">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Portuguesa -->
-        <div class="flex gap-2">
-            <img src="./assets/pastel.jpg" alt="Pastel" class="w-28 h-28 rounded-md hover:scale-110 duration-300"/>
-            <div class="w-full">
-                <p class="font-bold">Portuguesa</p>
-                <p class="text-sm">Queijo, presunto, ovos, azeitona, tomate</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 11.50</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 rounded">
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="decrease">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity-display px-3">1</span>
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="increase">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Portuguesa"
-                                data-price="11.50">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Baiana -->
-        <div class="flex gap-2">
-            <img src="./assets/pastel.jpg" alt="Pastel" class="w-28 h-28 rounded-md hover:scale-110 duration-300"/>
-            <div class="w-full">
-                <p class="font-bold">Baiana</p>
-                <p class="text-sm">Calabresa, pimenta calabresa, tomate, cebola</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 11.50</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 rounded">
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="decrease">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity-display px-3">1</span>
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="increase">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Baiana"
-                                data-price="11.50">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Camarão -->
-        <div class="flex gap-2">
-            <img src="./assets/pastel.jpg" alt="Pastel" class="w-28 h-28 rounded-md hover:scale-110 duration-300"/>
-            <div class="w-full">
-                <p class="font-bold">Camarão</p>
-                <p class="text-sm">Pastel recheado com camarão temperado</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 13.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 rounded">
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="decrease">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity-display px-3">1</span>
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="increase">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Camarão"
-                                data-price="13.00">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Camarão c/queijo -->
-        <div class="flex gap-2">
-            <img src="./assets/pastel.jpg" alt="Pastel" class="w-28 h-28 rounded-md hover:scale-110 duration-300"/>
-            <div class="w-full">
-                <p class="font-bold">Camarão c/queijo</p>
-                <p class="text-sm">Escolha: catupiry ou queijo coalho</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 14.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 rounded">
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="decrease">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity-display px-3">1</span>
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="increase">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Camarão c/queijo"
-                                data-price="14.00">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Misto aos três queijos -->
-        <div class="flex gap-2">
-            <img src="./assets/pastel.jpg" alt="Pastel" class="w-28 h-28 rounded-md hover:scale-110 duration-300"/>
-            <div class="w-full">
-                <p class="font-bold">Misto aos três queijos</p>
-                <p class="text-sm">Presunto, queijo coalho, catupiry, cheddar</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 11.50</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 rounded">
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="decrease">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity-display px-3">1</span>
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="increase">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Misto aos três queijos"
-                                data-price="11.50">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- A moda da casa -->
-        <div class="flex gap-2">
-            <img src="./assets/pastel.jpg" alt="Pastel" class="w-28 h-28 rounded-md hover:scale-110 duration-300"/>
-            <div class="w-full">
-                <p class="font-bold">A moda da casa</p>
-                <p class="text-sm">Queijo, presunto, calabresa, milho, tomate, azeitona</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 11.50</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 rounded">
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="decrease">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity-display px-3">1</span>
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="increase">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="A moda da casa"
-                                data-price="11.50">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Presunto especial -->
-        <div class="flex gap-2">
-            <img src="./assets/pastel.jpg" alt="Pastel" class="w-28 h-28 rounded-md hover:scale-110 duration-300"/>
-            <div class="w-full">
-                <p class="font-bold">Presunto especial</p>
-                <p class="text-sm">Presunto, queijo, ovos, milho, orégano, azeitona</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 11.50</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 rounded">
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="decrease">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity-display px-3">1</span>
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="increase">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Presunto especial"
-                                data-price="11.50">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Brasileirinha -->
-        <div class="flex gap-2">
-            <img src="./assets/pastel.jpg" alt="Pastel" class="w-28 h-28 rounded-md hover:scale-110 duration-300"/>
-            <div class="w-full">
-                <p class="font-bold">Brasileirinha</p>
-                <p class="text-sm">Charque, milho, azeitona, tomate, e cebola</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 14.00</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 rounded">
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="decrease">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity-display px-3">1</span>
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="increase">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Brasileirinha"
-                                data-price="14.00">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Caipira -->
-        <div class="flex gap-2">
-            <img src="./assets/pastel.jpg" alt="Pastel" class="w-28 h-28 rounded-md hover:scale-110 duration-300"/>
-            <div class="w-full">
-                <p class="font-bold">Caipira</p>
-                <p class="text-sm">Molho de tomate, frango, queijo, presunto e catupiry</p>
-                <div class="flex items-center gap-2 justify-between mt-3">
-                    <p class="font-bold text-lg">R$ 11.50</p>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center bg-gray-100 rounded">
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="decrease">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity-display px-3">1</span>
-                            <button class="px-2 py-1 text-orange-600 quantity-btn" data-action="increase">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                        <button class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Caipira"
-                                data-price="11.50">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        </main>
-        <!--FIM - Pasteis normais-->
-
-
-        <!--INÌCIO - Pastel Caprichado (Mesmo tamanho, com o dobro de recheio)-->
-        <div class="mx-auto max-w-7xl px-2 my-2 bg-orange-600  py-1 rounded-lg mt-2">
-
-            <h2 class="text-2xl md:text-2xl text-white font-bold text-center mt-1 mb-0">
-                Pastel Caprichado
-            </h2>
-
-            <h3 class="text-1xl md:text-1xl text-white font-bold text-center mt-0 mb-1">
-                (Mesmo tamanho, com o dobro de recheio)
-            </h3>
-
-        </div>
-        <!-- FIM - Pastel Caprichado (Mesmo tamanho, com o dobro de recheio)-->
-
-        <!--Grid pasteis caprichados-->
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
-
-            <!-- PRODUTOS/ITENS -->
-            <div class="flex gap-2">
-
-                <img
-                src="./assets/pastel.jpg" 
-                alt="Pastel"
-                class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                />
-
-                <div class="w-full">
-
-                    <p class="font-bold">Frango com Catupiry</p>
-                    <p class="text-sm">Pastel de frango com Catupiry</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 8.00</p>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center bg-gray-100 rounded">
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="decrease"
-                                    aria-label="Diminuir quantidade">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity-display px-3">1</span>
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="increase"
-                                    aria-label="Aumentar quantidade">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <button 
-                                class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Frango Catupiry"
-                                data-price="8.00">
-                                <i class="fa fa-cart-plus text-lg text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-            <!--FIM PRODUTOS/ITENS -->
-
-            <!-- PRODUTOS/ITENS -->
-            <div class="flex gap-2">
-
-                <img
-                src="./assets/pastel.jpg" 
-                alt="Pastel"
-                class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                />
-
-                <div class="w-full">
-
-                    <p class="font-bold">Frango com Catupiry</p>
-                    <p class="text-sm">Pastel de frango com Catupiry</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 8.00</p>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center bg-gray-100 rounded">
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="decrease"
-                                    aria-label="Diminuir quantidade">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity-display px-3">1</span>
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="increase"
-                                    aria-label="Aumentar quantidade">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <button 
-                                class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Frango Catupiry"
-                                data-price="8.00">
-                                <i class="fa fa-cart-plus text-lg text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-            <!--FIM PRODUTOS/ITENS -->
-
-            <!-- PRODUTOS/ITENS -->
-            <div class="flex gap-2">
-
-                <img
-                src="./assets/pastel.jpg" 
-                alt="Pastel"
-                class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                />
-
-                <div class="w-full">
-
-                    <p class="font-bold">Frango com Catupiry</p>
-                    <p class="text-sm">Pastel de frango com Catupiry</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 8.00</p>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center bg-gray-100 rounded">
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="decrease"
-                                    aria-label="Diminuir quantidade">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity-display px-3">1</span>
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="increase"
-                                    aria-label="Aumentar quantidade">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <button 
-                                class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Frango Catupiry"
-                                data-price="8.00">
-                                <i class="fa fa-cart-plus text-lg text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-            <!--FIM PRODUTOS/ITENS -->
-
-            <!-- PRODUTOS/ITENS -->
-            <div class="flex gap-2">
-
-                <img
-                src="./assets/pastel.jpg" 
-                alt="Pastel"
-                class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                />
-
-                <div class="w-full">
-
-                    <p class="font-bold">Frango com Catupiry</p>
-                    <p class="text-sm">Pastel de frango com Catupiry</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 8.00</p>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center bg-gray-100 rounded">
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="decrease"
-                                    aria-label="Diminuir quantidade">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity-display px-3">1</span>
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="increase"
-                                    aria-label="Aumentar quantidade">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <button 
-                                class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Frango Catupiry"
-                                data-price="8.00">
-                                <i class="fa fa-cart-plus text-lg text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-            <!--FIM PRODUTOS/ITENS -->
-
-            <!-- PRODUTOS/ITENS -->
-            <div class="flex gap-2">
-
-                <img
-                src="./assets/pastel.jpg" 
-                alt="Pastel"
-                class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                />
-
-                <div class="w-full">
-
-                    <p class="font-bold">Frango com Catupiry</p>
-                    <p class="text-sm">Pastel de frango com Catupiry</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 8.00</p>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center bg-gray-100 rounded">
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="decrease"
-                                    aria-label="Diminuir quantidade">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity-display px-3">1</span>
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="increase"
-                                    aria-label="Aumentar quantidade">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <button 
-                                class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Frango Catupiry"
-                                data-price="8.00">
-                                <i class="fa fa-cart-plus text-lg text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-            <!--FIM PRODUTOS/ITENS -->
-
-            <!-- PRODUTOS/ITENS -->
-            <div class="flex gap-2">
-
-                <img
-                src="./assets/pastel.jpg" 
-                alt="Pastel"
-                class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                />
-
-                <div class="w-full">
-
-                    <p class="font-bold">Frango com Catupiry</p>
-                    <p class="text-sm">Pastel de frango com Catupiry</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 8.00</p>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center bg-gray-100 rounded">
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="decrease"
-                                    aria-label="Diminuir quantidade">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity-display px-3">1</span>
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="increase"
-                                    aria-label="Aumentar quantidade">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <button 
-                                class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Frango Catupiry"
-                                data-price="8.00">
-                                <i class="fa fa-cart-plus text-lg text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-            <!--FIM PRODUTOS/ITENS -->
-
-            <!-- PRODUTOS/ITENS -->
-            <div class="flex gap-2">
-
-                <img
-                src="./assets/pastel.jpg" 
-                alt="Pastel"
-                class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                />
-
-                <div class="w-full">
-
-                    <p class="font-bold">Frango com Catupiry</p>
-                    <p class="text-sm">Pastel de frango com Catupiry</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 8.00</p>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center bg-gray-100 rounded">
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="decrease"
-                                    aria-label="Diminuir quantidade">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity-display px-3">1</span>
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="increase"
-                                    aria-label="Aumentar quantidade">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <button 
-                                class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Frango Catupiry"
-                                data-price="8.00">
-                                <i class="fa fa-cart-plus text-lg text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-            <!--FIM PRODUTOS/ITENS -->
-
-            <!-- PRODUTOS/ITENS -->
-            <div class="flex gap-2">
-
-                <img
-                src="./assets/pastel.jpg" 
-                alt="Pastel"
-                class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                />
-
-                <div class="w-full">
-
-                    <p class="font-bold">Frango com Catupiry</p>
-                    <p class="text-sm">Pastel de frango com Catupiry</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 8.00</p>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center bg-gray-100 rounded">
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="decrease"
-                                    aria-label="Diminuir quantidade">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity-display px-3">1</span>
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="increase"
-                                    aria-label="Aumentar quantidade">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <button 
-                                class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Frango Catupiry"
-                                data-price="8.00">
-                                <i class="fa fa-cart-plus text-lg text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-            <!--FIM PRODUTOS/ITENS -->
-
-        </div>
-        <!--Fim Grid pasteis caprichados-->
-
-        <!--INÌCIO - Pastel doce-->
-        <div class="mx-auto max-w-7xl px-2 my-2 bg-orange-600  py-1 rounded-lg mt-2">
-
-            <h2 class="text-2xl md:text-2xl text-white font-bold text-center mt-1 mb-1">
-                Pastel doce
-            </h2>
-
-        </div>
-        <!-- FIM - Pastel doce--> 
-
-            <!--INÌCIO - Grid pastel doce-->
-            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
-
-                <!-- PRODUTOS/ITENS -->
-                <div class="flex gap-2">
-        
-                    <img
-                    src="./assets/pastel.jpg" 
-                    alt="Pastel"
-                    class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                    />
-        
-                    <div class="w-full">
-        
-                        <p class="font-bold">Brigadeiro</p>
-                        <p class="text-sm">Pastel com chocolate</p>
-        
-                        <div class="flex items-center gap-2 justify-between mt-3">
-                            <p class="font-bold text-lg">R$ 10.50</p>
-                            <div class="flex items-center gap-2">
-                                <div class="flex items-center bg-gray-100 rounded">
-                                    <button 
-                                        class="px-2 py-1 text-orange-600 quantity-btn" 
-                                        data-action="decrease"
-                                        aria-label="Diminuir quantidade">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <span class="quantity-display px-3">1</span>
-                                    <button 
-                                        class="px-2 py-1 text-orange-600 quantity-btn" 
-                                        data-action="increase"
-                                        aria-label="Aumentar quantidade">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                                <button 
-                                    class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                    data-name="Brigadeiro"
-                                    data-price="10.50">
-                                    <i class="fa fa-cart-plus text-lg text-white"></i>
-                                </button>
-                            </div>
-                        </div>
-        
-                    </div>
-                    
-                </div>
-                <!--FIM PRODUTOS/ITENS -->
-        
-                <!-- PRODUTOS/ITENS -->
-                <div class="flex gap-2">
-        
-                    <img
-                    src="./assets/pastel.jpg" 
-                    alt="Pastel"
-                    class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                    />
-        
-                    <div class="w-full">
-        
-                        <p class="font-bold">Romeu e Julieta</p>
-                        <p class="text-sm">Queijo e goiabada</p>
-        
-                        <div class="flex items-center gap-2 justify-between mt-3">
-                            <p class="font-bold text-lg">R$ 10.50</p>
-                            <div class="flex items-center gap-2">
-                                <div class="flex items-center bg-gray-100 rounded">
-                                    <button 
-                                        class="px-2 py-1 text-orange-600 quantity-btn" 
-                                        data-action="decrease"
-                                        aria-label="Diminuir quantidade">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <span class="quantity-display px-3">1</span>
-                                    <button 
-                                        class="px-2 py-1 text-orange-600 quantity-btn" 
-                                        data-action="increase"
-                                        aria-label="Aumentar quantidade">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                                <button 
-                                    class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                    data-name="Romeu e Julieta"
-                                    data-price="10.50">
-                                    <i class="fa fa-cart-plus text-lg text-white"></i>
-                                </button>
-                            </div>
-                        </div>
-        
-                    </div>
-                    
-                </div>
-                <!--FIM PRODUTOS/ITENS -->
-        
-                <!-- PRODUTOS/ITENS -->
-                <div class="flex gap-2">
-        
-                    <img
-                    src="./assets/pastel.jpg" 
-                    alt="Pastel"
-                    class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                    />
-        
-                    <div class="w-full">
-        
-                        <p class="font-bold">Doce de leite</p>
-                        <p class="text-sm">Pastel com doce de leite</p>
-        
-                        <div class="flex items-center gap-2 justify-between mt-3">
-                            <p class="font-bold text-lg">R$ 10.50</p>
-                            <div class="flex items-center gap-2">
-                                <div class="flex items-center bg-gray-100 rounded">
-                                    <button 
-                                        class="px-2 py-1 text-orange-600 quantity-btn" 
-                                        data-action="decrease"
-                                        aria-label="Diminuir quantidade">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <span class="quantity-display px-3">1</span>
-                                    <button 
-                                        class="px-2 py-1 text-orange-600 quantity-btn" 
-                                        data-action="increase"
-                                        aria-label="Aumentar quantidade">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                                <button 
-                                    class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                    data-name="Doce de leite"
-                                    data-price="10.50">
-                                    <i class="fa fa-cart-plus text-lg text-white"></i>
-                                </button>
-                            </div>
-                        </div>
-        
-                    </div>
-                    
-                </div>
-                <!--FIM PRODUTOS/ITENS -->
-        
-                <!-- PRODUTOS/ITENS -->
-                <div class="flex gap-2">
-        
-                    <img
-                    src="./assets/pastel.jpg" 
-                    alt="Pastel"
-                    class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                    />
-        
-                    <div class="w-full">
-        
-                        <p class="font-bold">Banana com canela</p>
-                        <p class="text-sm">Banana, canela e açucar</p>
-        
-                        <div class="flex items-center gap-2 justify-between mt-3">
-                            <p class="font-bold text-lg">R$ 10.50</p>
-                            <div class="flex items-center gap-2">
-                                <div class="flex items-center bg-gray-100 rounded">
-                                    <button 
-                                        class="px-2 py-1 text-orange-600 quantity-btn" 
-                                        data-action="decrease"
-                                        aria-label="Diminuir quantidade">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <span class="quantity-display px-3">1</span>
-                                    <button 
-                                        class="px-2 py-1 text-orange-600 quantity-btn" 
-                                        data-action="increase"
-                                        aria-label="Aumentar quantidade">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                                <button 
-                                    class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                    data-name="Banana com canela"
-                                    data-price="10.50">
-                                    <i class="fa fa-cart-plus text-lg text-white"></i>
-                                </button>
-                            </div>
-                        </div>
-        
-                    </div>
-                    
-                </div>
-                <!--FIM PRODUTOS/ITENS -->
-        
-                <!-- PRODUTOS/ITENS -->
-                <div class="flex gap-2">
-        
-                    <img
-                    src="./assets/pastel.jpg" 
-                    alt="Pastel"
-                    class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                    />
-        
-                    <div class="w-full">
-        
-                        <p class="font-bold">Mancha negra</p>
-                        <p class="text-sm">Chocolate, banana e leite condensado</p>
-        
-                        <div class="flex items-center gap-2 justify-between mt-3">
-                            <p class="font-bold text-lg">R$ 10.50</p>
-                            <div class="flex items-center gap-2">
-                                <div class="flex items-center bg-gray-100 rounded">
-                                    <button 
-                                        class="px-2 py-1 text-orange-600 quantity-btn" 
-                                        data-action="decrease"
-                                        aria-label="Diminuir quantidade">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <span class="quantity-display px-3">1</span>
-                                    <button 
-                                        class="px-2 py-1 text-orange-600 quantity-btn" 
-                                        data-action="increase"
-                                        aria-label="Aumentar quantidade">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                                <button 
-                                    class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                    data-name="Mancha negra"
-                                    data-price="10.50">
-                                    <i class="fa fa-cart-plus text-lg text-white"></i>
-                                </button>
-                            </div>
-                        </div>
-        
-                    </div>
-                    
-                </div>
-                <!--FIM PRODUTOS/ITENS -->
-        
-                <!-- PRODUTOS/ITENS -->
-                <div class="flex gap-2">
-        
-                    <img
-                    src="./assets/pastel.jpg" 
-                    alt="Pastel"
-                    class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                    />
-        
-                    <div class="w-full">
-        
-                        <p class="font-bold">Banela</p>
-                        <p class="text-sm">Banana, queijo coalho, canela e leite condensado</p>
-        
-                        <div class="flex items-center gap-2 justify-between mt-3">
-                            <p class="font-bold text-lg">R$ 10.50</p>
-                            <div class="flex items-center gap-2">
-                                <div class="flex items-center bg-gray-100 rounded">
-                                    <button 
-                                        class="px-2 py-1 text-orange-600 quantity-btn" 
-                                        data-action="decrease"
-                                        aria-label="Diminuir quantidade">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <span class="quantity-display px-3">1</span>
-                                    <button 
-                                        class="px-2 py-1 text-orange-600 quantity-btn" 
-                                        data-action="increase"
-                                        aria-label="Aumentar quantidade">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                                <button 
-                                    class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                    data-name="Banela"
-                                    data-price="10.50">
-                                    <i class="fa fa-cart-plus text-lg text-white"></i>
-                                </button>
-                            </div>
-                        </div>
-        
-                    </div>
-                    
-                </div>
-                <!--FIM PRODUTOS/ITENS -->
-        
-                <!-- PRODUTOS/ITENS -->
-                <div class="flex gap-2">
-        
-                    <img
-                    src="./assets/pastel.jpg" 
-                    alt="Pastel"
-                    class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                    />
-        
-                    <div class="w-full">
-        
-                        <p class="font-bold">Super sensação</p>
-                        <p class="text-sm">Doce de leite com banana</p>
-        
-                        <div class="flex items-center gap-2 justify-between mt-3">
-                            <p class="font-bold text-lg">R$ 10.50</p>
-                            <div class="flex items-center gap-2">
-                                <div class="flex items-center bg-gray-100 rounded">
-                                    <button 
-                                        class="px-2 py-1 text-orange-600 quantity-btn" 
-                                        data-action="decrease"
-                                        aria-label="Diminuir quantidade">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <span class="quantity-display px-3">1</span>
-                                    <button 
-                                        class="px-2 py-1 text-orange-600 quantity-btn" 
-                                        data-action="increase"
-                                        aria-label="Aumentar quantidade">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                                <button 
-                                    class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                    data-name="Super sensação"
-                                    data-price="10.50">
-                                    <i class="fa fa-cart-plus text-lg text-white"></i>
-                                </button>
-                            </div>
-                        </div>
-        
-                    </div>
-                    
-                </div>
-                <!--FIM PRODUTOS/ITENS -->
-        
-            </div>
-            <!--FIM - Grid pasteL doce-->
-
-        <!--INÌCIO - Cuscuz recheado-->
-        <div class="mx-auto max-w-7xl px-2 my-2 bg-orange-600  py-1 rounded-lg mt-2">
-
-            <h2 class="text-2xl md:text-2xl text-white font-bold text-center mt-1 mb-1">
-                Cuscuz recheado
-            </h2>
-
-        </div>
-        <!-- FIM - Cuscuz recheado-->
-
-        <!--Grid Cuscuz recheeado-->
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
-
-            <!-- PRODUTOS/ITENS -->
-            <div class="flex gap-2">
-
-                <img
-                src="./assets/cuscuz.jpg" 
-                alt="Carne com queijo coalho"
-                class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                />
-
-                <div class="w-full">
-
-                    <p class="font-bold">Carne com queijo coalho</p>
-                    <p class="text-sm">Cuscuz recheado de carne com queijo coalho</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 11.00</p>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center bg-gray-100 rounded">
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="decrease"
-                                    aria-label="Diminuir quantidade">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity-display px-3">1</span>
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="increase"
-                                    aria-label="Aumentar quantidade">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <button 
-                                class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Carne com queijo coalho"
-                                data-price="11.00">
-                                <i class="fa fa-cart-plus text-lg text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-            <!--FIM PRODUTOS/ITENS -->
-
-            <!-- PRODUTOS/ITENS -->
-            <div class="flex gap-2">
-
-                <img
-                src="./assets/cuscuz.jpg" 
-                alt="Frango com queijo coalho"
-                class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                />
-
-                <div class="w-full">
-
-                    <p class="font-bold">Frango com queijo coalho</p>
-                    <p class="text-sm">Cuscuz recheado de frango com queijo coalho</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 11.00</p>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center bg-gray-100 rounded">
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="decrease"
-                                    aria-label="Diminuir quantidade">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity-display px-3">1</span>
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="increase"
-                                    aria-label="Aumentar quantidade">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <button 
-                                class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Frango com queijo coalho"
-                                data-price="11.00">
-                                <i class="fa fa-cart-plus text-lg text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-            <!--FIM PRODUTOS/ITENS -->
-
-            <!-- PRODUTOS/ITENS -->
-            <div class="flex gap-2">
-
-                <img
-                src="./assets/cuscuz.jpg" 
-                alt="Calabresa com queijo coalho"
-                class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                />
-
-                <div class="w-full">
-
-                    <p class="font-bold">Calabresa com queijo coalho</p>
-                    <p class="text-sm">Cuscuz recheado de calabresa com queijo coalho</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 12.00</p>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center bg-gray-100 rounded">
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="decrease"
-                                    aria-label="Diminuir quantidade">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity-display px-3">1</span>
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="increase"
-                                    aria-label="Aumentar quantidade">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <button 
-                                class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Calabresa com queijo coalho"
-                                data-price="12.00">
-                                <i class="fa fa-cart-plus text-lg text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-            <!--FIM PRODUTOS/ITENS -->
-
-            <!-- PRODUTOS/ITENS -->
-            <div class="flex gap-2">
-
-                <img
-                src="./assets/cuscuz.jpg" 
-                alt="Charque com queijo coalho"
-                class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                />
-
-                <div class="w-full">
-
-                    <p class="font-bold">Charque com queijo coalho</p>
-                    <p class="text-sm">Cuscuz de charque com queijo coalho</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 15.50</p>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center bg-gray-100 rounded">
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="decrease"
-                                    aria-label="Diminuir quantidade">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity-display px-3">1</span>
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="increase"
-                                    aria-label="Aumentar quantidade">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <button 
-                                class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Charque com queijo coalho"
-                                data-price="15.50">
-                                <i class="fa fa-cart-plus text-lg text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-            <!--FIM PRODUTOS/ITENS -->
-
-            <!-- PRODUTOS/ITENS -->
-            <div class="flex gap-2">
-
-                <img
-                src="./assets/cuscuz.jpg" 
-                alt="Camarão com queijo coalho"
-                class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                />
-
-                <div class="w-full">
-
-                    <p class="font-bold">Camarão com queijo coalho</p>
-                    <p class="text-sm">Cuscuz de camarão com queijo coalho</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 15.50</p>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center bg-gray-100 rounded">
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="decrease"
-                                    aria-label="Diminuir quantidade">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity-display px-3">1</span>
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="increase"
-                                    aria-label="Aumentar quantidade">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <button 
-                                class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Camarão com queijo coalho"
-                                data-price="15.50">
-                                <i class="fa fa-cart-plus text-lg text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-            <!--FIM PRODUTOS/ITENS -->
-
-        </div>
-        <!--FIM - Grid Cuscuz recheado-->
-
-        <!--INÌCIO - Bebidas-->
-        <div class="mx-auto max-w-7xl px-2 my-2 bg-orange-600  py-1 rounded-lg mt-2">
-
-            <h2 class="text-2xl md:text-2xl text-white font-bold text-center mt-1 mb-1">
-                Bebidas
-            </h2>
-
-        </div>
-        <!-- FIM - Bebidas-->
-
-        <!--INÍCIO - Grid Bebidas-->
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
-
-            <!-- PRODUTOS/ITENS -->
-            <div class="flex gap-2">
-
-                <img
-                src="./assets/refri-1.png" 
-                alt="Pastel"
-                class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                />
-
-                <div class="w-full">
-
-                    <p class="font-bold">Coca-Cola</p>
-                    <p class="text-sm">Lata (350ml)</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 5.00</p>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center bg-gray-100 rounded">
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="decrease"
-                                    aria-label="Diminuir quantidade">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity-display px-3">1</span>
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="increase"
-                                    aria-label="Aumentar quantidade">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <button 
-                                class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Coca-Cola"
-                                data-price="5.00">
-                                <i class="fa fa-cart-plus text-lg text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-            <!--FIM PRODUTOS/ITENS -->
-
-            <!-- PRODUTOS/ITENS -->
-            <div class="flex gap-2">
-
-                <img
-                src="./assets/refri-2.png" 
-                alt="Pastel"
-                class="w-28 h-28 rounded-md hover:scale-110 duration-300"
-                />
-
-                <div class="w-full">
-
-                    <p class="font-bold">Guaraná</p>
-                    <p class="text-sm">Lata (350ml)</p>
-
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 5.00</p>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center bg-gray-100 rounded">
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="decrease"
-                                    aria-label="Diminuir quantidade">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity-display px-3">1</span>
-                                <button 
-                                    class="px-2 py-1 text-orange-600 quantity-btn" 
-                                    data-action="increase"
-                                    aria-label="Aumentar quantidade">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <button 
-                                class="bg-orange-600 px-5 py-2 rounded add-to-cart-btn"
-                                data-name="Guaraná"
-                                data-price="5.00">
-                                <i class="fa fa-cart-plus text-lg text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-            <!--FIM PRODUTOS/ITENS -->
-
-        </div>
-        <!--FIM - Grid Bebidas-->
-
-    </div>    <!-- FIM CARDÁPIO -->
-    <!-- Scripts unificados e ordenados -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script defer src="./menu-fix.js"></script>
-    <script defer src="./caprichado-clone.js"></script>
-    <script defer src="./cart-system.js"></script>
-    <script defer src="./final-summary-fix.js"></script>
-    <script defer src="./payment-button-fix.js"></script>
-    <script defer src="./mobile-scroll-fix.js"></script>
-    <script defer src="./dark-mode-fix.js"></script>
-    <script defer src="./theme.js"></script>
-    <script defer src="./scripts/section-scroll.js"></script>
-    <script defer src="./scripts/business-hours.js"></script>
-
-    <!-- Script para navegação por tabs -->
+        <span
+            class="absolute right-full mr-3 bg-zinc-800 text-white text-xs py-1 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">Ver
+            meu pedido</span>
+    </button>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <!-- Dados e Motor de Renderização -->
+    <script src="./scripts/menu-data.js"></script>
+    <script src="./scripts/menu-renderer.js"></script>
+
+    <!-- Lógica de Negócio -->
+    <script src="./scripts/theme.js"></script>
+    <script src="./scripts/cart-system.js"></script>
+    <script src="./scripts/business-hours.js"></script>
+
+    <!-- Script de Navegação Local (Tabs) -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const tabs = document.querySelectorAll('.category-tab');
-            
+            const contents = document.querySelectorAll('.tab-content');
+
             tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // Remove active class from all tabs
+                tab.addEventListener('click', function () {
+                    const target = this.dataset.target;
+
+                    // Update tabs UI
                     tabs.forEach(t => {
-                        t.classList.remove('active-tab', 'bg-orange-600', 'text-white');
-                        t.classList.add('bg-gray-200', 'text-gray-800', 'dark:bg-gray-700', 'dark:text-gray-200');
+                        t.classList.remove('active-tab', 'bg-orange-600', 'text-white', 'shadow-md');
+                        t.classList.add('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
                         t.setAttribute('aria-selected', 'false');
                     });
-                    
-                    // Add active class to clicked tab
-                    this.classList.remove('bg-gray-200', 'text-gray-800', 'dark:bg-gray-700', 'dark:text-gray-200');
-                    this.classList.add('active-tab', 'bg-orange-600', 'text-white');
+
+                    this.classList.remove('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+                    this.classList.add('active-tab', 'bg-orange-600', 'text-white', 'shadow-md');
                     this.setAttribute('aria-selected', 'true');
-                    
-                    // Announce for screen readers
-                    const announcement = document.createElement('div');
-                    announcement.setAttribute('aria-live', 'polite');
-                    announcement.classList.add('sr-only');
-                    announcement.textContent = `Categoria ${this.textContent} selecionada`;
-                    document.body.appendChild(announcement);
-                    setTimeout(() => document.body.removeChild(announcement), 1000);
+
+                    // Update contents UI
+                    contents.forEach(content => {
+                        content.classList.add('hidden');
+                        if (content.id === target) content.classList.remove('hidden');
+                    });
+
+                    // Scroll to content if needed (optional)
+                    // document.getElementById('menu-sections').scrollIntoView({ behavior: 'smooth' });
                 });
             });
-        });    </script>
-</body> 
+        });
+    </script>
+</body>
+
 </html>

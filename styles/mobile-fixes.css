@@ -86,14 +86,20 @@
     }
   }
   
-  /* Ajuste para a etapa de pagamento */
+  /* Ajuste para a etapa de pagamento (Passo 4) */
   #checkout-step-4 .cart-scrollable-content {
-    max-height: calc(70vh - 200px) !important;
-    padding-bottom: 50px;
+    max-height: calc(75vh - 220px) !important;
+    padding-bottom: 40px;
   }
   
   /* Ajuste para a tabela de detalhes na etapa final */
   .order-items-container {
-    max-height: 30vh !important;
+    max-height: 35vh !important;
+  }
+
+  /* Melhoria para botões em telas pequenas */
+  .checkout-step-content button {
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
 }

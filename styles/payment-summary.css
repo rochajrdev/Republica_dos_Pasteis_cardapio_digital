@@ -4,28 +4,28 @@
  */
 
 /* Estilos específicos para a tabela na etapa de pagamento */
-.step-3 .order-items-container {
-  max-height: 40vh !important; /* Aumentar altura da tabela na etapa final */
+.step-4 .order-items-container {
+  max-height: 45vh !important; /* Aumentar altura da tabela na etapa final */
   overflow-y: auto;
 }
 
-.step-3 .order-items-container table {
+.step-4 .order-items-container table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
 }
 
-.step-3 .order-items-container thead {
+.step-4 .order-items-container thead {
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
-.step-3 .order-items-container tbody tr:hover {
+.step-4 .order-items-container tbody tr:hover {
   background-color: rgba(249, 115, 22, 0.05);
 }
 
-.dark .step-3 .order-items-container tbody tr:hover {
+.dark .step-4 .order-items-container tbody tr:hover {
   background-color: rgba(249, 115, 22, 0.1);
 }
 
@@ -35,7 +35,7 @@
 }
 
 /* Botões de navegação na etapa final */
-.step-3 .cart-nav-buttons {
+.step-4 .cart-nav-buttons {
   margin-top: 1rem;
   padding: 1rem 0;
   position: sticky;
@@ -46,7 +46,7 @@
   border-top: 1px solid rgba(229, 231, 235, 0.8);
 }
 
-.dark .step-3 .cart-nav-buttons {
+.dark .step-4 .cart-nav-buttons {
   background: #1f2937;
   border-top: 1px solid rgba(55, 65, 81, 0.8);
   box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.2);
@@ -63,7 +63,7 @@
 }
 
 /* Animações suaves */
-.step-3 #final-order-summary {
+.step-4 #final-order-summary {
   animation: fadeIn 0.3s ease-in-out;
 }
 

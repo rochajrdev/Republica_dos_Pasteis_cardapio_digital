@@ -1,36 +1,57 @@
 /* Estilos específicos para o carrinho de compras */
 
-/* Layout do modal do carrinho para garantir visibilidade completa */
+/* Layout base do modal para garantir que ele se adapte a qualquer tela */
 .checkout-step-content {
-    display: flex;
+    display: none;
     flex-direction: column;
-    max-height: calc(85vh - 160px); /* Altura aumentada para melhor visualização */
+    height: 100%;
+    /* Ocupa todo o espaço disponível no container pai */
     overflow: hidden;
     position: relative;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .checkout-step-content.active {
     display: flex;
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* Conteúdo com scrolling, botões fixos */
+/* Área central de conteúdo com scroll independente */
 .cart-scrollable-content {
     flex: 1;
+    /* Ocupa o máximo de espaço entre o topo e os botões */
     overflow-y: auto;
-    padding-right: 6px; /* Espaço para scrollbar */
-    margin-bottom: 8px;
-    max-height: calc(70vh - 200px); /* Ajustado para maior altura visível */
+    overflow-x: hidden;
+    padding-right: 4px;
+    margin-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+    /* Scroll suave no iOS */
     scrollbar-width: thin;
     scrollbar-color: #f97316 #e5e7eb;
 }
 
+/* Estilo para a barra de rolagem (Chrome/Safari) */
+.cart-scrollable-content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.cart-scrollable-content::-webkit-scrollbar-thumb {
+    background: #f97316;
+    border-radius: 10px;
+}
+
 /* Ajuste específico para a etapa de pagamento */
 .step-3 .checkout-step-content {
-    padding-bottom: 5rem; /* Espaço extra para o botão de finalizar */
+    padding-bottom: 5rem;
+    /* Espaço extra para o botão de finalizar */
 }
 
 .step-3 .cart-scrollable-content {
-    max-height: calc(70vh - 240px); /* Ajuste para dar mais espaço ao botão */
+    max-height: calc(70vh - 240px);
+    /* Ajuste para dar mais espaço ao botão */
 }
 
 /* Estilização para o resumo do total que aparece na primeira etapa */
@@ -114,8 +135,8 @@
 
 /* Altura máxima para tabelas de resumo */
 .order-items-container {
-    max-height: 150px !important;
-    overflow-y: auto !important;
+    max-height: 180px;
+    overflow-y: auto;
 }
 
 /* Animações para o carrinho */
@@ -126,6 +147,7 @@
         transform: translateX(0);
         opacity: 1;
     }
+
     to {
         transform: translateX(100%);
         opacity: 0;
@@ -141,6 +163,7 @@
         transform: translateX(-20px);
         opacity: 0;
     }
+
     to {
         transform: translateX(0);
         opacity: 1;
@@ -152,9 +175,11 @@
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.2);
     }
+
     100% {
         transform: scale(1);
     }
@@ -165,9 +190,11 @@
     0% {
         box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4);
     }
+
     70% {
         box-shadow: 0 0 0 10px rgba(249, 115, 22, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
     }
@@ -203,7 +230,8 @@
 
 /* Melhor visualização dos itens do carrinho */
 .cart-item-image {
-    width: 96px; /* 24 * 4 = 96px para w-24 */
+    width: 96px;
+    /* 24 * 4 = 96px para w-24 */
     height: 96px;
     border-radius: 8px;
     object-fit: cover;
@@ -361,9 +389,17 @@
 
 /* Animação para o contador do carrinho */
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .cart-count-updating {
@@ -427,7 +463,8 @@
 #cart-modal .dark\:bg-gray-800 {
     border-radius: 8px;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-    max-height: 90vh; /* Aumentar altura máxima */
+    max-height: 90vh;
+    /* Aumentar altura máxima */
     display: flex;
     flex-direction: column;
 }
@@ -468,7 +505,7 @@
 
 #checkout-btn::after {
     content: "";
-    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
     width: 50px;
     height: 100%;
     position: absolute;
@@ -479,7 +516,8 @@
 }
 
 #checkout-btn:hover::after {
-    left: 110%; /* Move o efeito de brilho para fora do botão */
+    left: 110%;
+    /* Move o efeito de brilho para fora do botão */
 }
 
 /* Efeito de foco para inputs */
@@ -494,6 +532,7 @@
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -524,12 +563,12 @@
     .cart-item {
         flex-direction: column;
     }
-    
+
     .cart-image-container {
         margin-bottom: 1rem;
         align-self: center;
     }
-    
+
     .cart-item-image {
         width: 120px;
         height: 120px;
@@ -541,9 +580,10 @@
     .cart-item {
         padding: 1.5rem;
     }
-    
+
     .cart-item-image {
-        width: 112px; /* 28 * 4 = 112px para w-28 */
+        width: 112px;
+        /* 28 * 4 = 112px para w-28 */
         height: 112px;
     }
 }
@@ -577,6 +617,7 @@
         opacity: 0;
         transform: translateY(5px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -651,8 +692,8 @@
     transition: width 0.4s ease;
 }
 
-.checkout-step.completed + .checkout-step-line::after,
-.checkout-step.active + .checkout-step-line::after {
+.checkout-step.completed+.checkout-step-line::after,
+.checkout-step.active+.checkout-step-line::after {
     width: 100%;
 }
 
@@ -669,20 +710,7 @@
     font-weight: 600;
 }
 
-/* Conteúdo das etapas */
-.checkout-step-content {
-    display: none;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    position: relative; /* Para animação */
-}
-
-.checkout-step-content.active {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
+/* Os estilos de checkout-step-content foram movidos para o topo do arquivo para melhor organização */
 
 .step-description {
     margin-bottom: 1rem;
@@ -703,7 +731,7 @@
     border: 1px solid #e5e7eb;
 }
 
-.delivery-option input[type="radio"]:checked + div {
+.delivery-option input[type="radio"]:checked+div {
     color: #f97316;
 }
 
@@ -750,6 +778,7 @@
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -761,6 +790,7 @@
         opacity: 1;
         transform: translateY(0);
     }
+
     to {
         opacity: 0;
         transform: translateY(-10px);
@@ -772,7 +802,7 @@
     .checkout-step .step-text {
         font-size: 10px;
     }
-    
+
     .step-circle {
         width: 25px;
         height: 25px;
@@ -797,8 +827,15 @@
 
 /* Animação de bounce */
 @keyframes bounceOnce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .animate-bounce-once {
@@ -837,6 +874,7 @@
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -857,7 +895,8 @@
 }
 
 .checkout-step.completed .step-circle {
-    background-color: #22c55e; /* Verde */
+    background-color: #22c55e;
+    /* Verde */
 }
 
 .checkout-step .step-text {
@@ -867,7 +906,8 @@
 
 .checkout-step.active .step-text {
     font-weight: bold;
-    color: #f97316; /* Laranja */
+    color: #f97316;
+    /* Laranja */
 }
 
 /* Resumo do pedido mais destacado */
@@ -886,9 +926,11 @@
 .cart-scrollable-content {
     flex: 1;
     overflow-y: auto;
-    padding-right: 6px; /* Espaço para scrollbar */
+    padding-right: 6px;
+    /* Espaço para scrollbar */
     margin-bottom: 16px;
-    max-height: calc(65vh - 150px); /* Ajuste automático deixando espaço para header e footer */
+    max-height: calc(65vh - 150px);
+    /* Ajuste automático deixando espaço para header e footer */
 }
 
 /* Botões de navegação fixos no rodapé */
@@ -1052,17 +1094,18 @@
 
 /* Responsividade */
 @media (max-width: 640px) {
+
     #cart-modal .bg-white,
     #cart-modal .dark\:bg-gray-800 {
         max-width: 100%;
         margin: 0 10px;
         max-height: 85vh;
     }
-    
+
     .cart-scrollable-content {
-        max-height: calc(70vh - 170px);
+        max-height: calc(75vh - 180px);
     }
-    
+
     .checkout-step .step-text {
         font-size: 9px;
     }
@@ -1073,16 +1116,16 @@
     .checkout-step-content {
         max-height: calc(85vh - 140px);
     }
-    
+
     .cart-scrollable-content {
         max-height: calc(80vh - 200px);
     }
-    
+
     .cart-total-summary {
         padding: 10px;
         margin-bottom: 8px;
     }
-    
+
     .cart-total-details {
         font-size: 0.85rem;
     }
