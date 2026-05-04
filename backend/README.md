@@ -29,6 +29,18 @@
 
 ```bash
 $ npm install
+
+## Database Setup (PostgreSQL + Prisma)
+
+1. Rename `.env.example` to `.env` and update the `DATABASE_URL` with your PostgreSQL credentials.
+2. Generate Prisma Client:
+```bash
+$ npx prisma generate
+```
+3. Run migrations to create tables:
+```bash
+$ npx prisma migrate dev --name init
+```
 ```
 
 ## Compile and run the project
